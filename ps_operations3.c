@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ps_operations3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:53:07 by ebinjama         ###   ########.fr       */
+/*   Created: 2023/12/20 21:53:26 by ebinjama          #+#    #+#             */
+/*   Updated: 2023/12/20 21:53:27 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	rra(t_stack *a, t_stack *b)
 {
-	t_stack	init;
-	t_stack	*a;
-	t_stack	b;
+	stack_rrotate(a, b);
+	write(1, "ra\n", 3);
+}
 
-	if (argc > 1)
-	{
-		init = init_stack();
-		b = init_stack();
-		a = validate_input(&init, &b, --argc, ++argv);
-		(void)a; // for now
-	}
-	return (0);
+void	rrb(t_stack *b, t_stack *a)
+{
+	stack_rrotate(b, a);
+	write(1, "rb\n", 3);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	stack_rrotate(a, b);
+	stack_rrotate(b, a);
+	write(1, "rrr\n", 3);
 }

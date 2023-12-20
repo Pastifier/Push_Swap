@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:53:07 by ebinjama         ###   ########.fr       */
+/*   Created: 2023/12/20 21:53:54 by ebinjama          #+#    #+#             */
+/*   Updated: 2023/12/20 21:53:55 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// TODO:
+// create input validation.
 #include "push_swap.h"
+#include "validate.h"
+#include <stdlib.h>
 
-int	main(int argc, char *argv[])
+void	submit_error(void)
 {
-	t_stack	init;
-	t_stack	*a;
-	t_stack	b;
-
-	if (argc > 1)
-	{
-		init = init_stack();
-		b = init_stack();
-		a = validate_input(&init, &b, --argc, ++argv);
-		(void)a; // for now
-	}
-	return (0);
+	return ((void)write(2, "Error\n", 6));
 }

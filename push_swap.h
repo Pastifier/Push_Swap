@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:53:07 by ebinjama         ###   ########.fr       */
+/*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
+/*   Updated: 2023/12/20 21:53:32 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int argc, char *argv[])
-{
-	t_stack	init;
-	t_stack	*a;
-	t_stack	b;
+# include "libft/libft.h"
+# include "stack.h"
+# include "validate.h"
+# include "operations.h"
 
-	if (argc > 1)
-	{
-		init = init_stack();
-		b = init_stack();
-		a = validate_input(&init, &b, --argc, ++argv);
-		(void)a; // for now
-	}
-	return (0);
-}
+/*----- FREE -----*/
+void	free_elements(t_stack *stack);
+void	free_2d(char **arr);
+
+#endif // !PUSH_SWAP_H
