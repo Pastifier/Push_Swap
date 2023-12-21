@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "validate.h"
 
 int	main(int argc, char *argv[])
 {
@@ -18,6 +19,7 @@ int	main(int argc, char *argv[])
 	t_stack	*a;
 	t_stack	b;
 
+	check_empty(--argc, ++argv);
 	if (argc > 1)
 	{
 		init = init_stack();

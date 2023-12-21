@@ -57,7 +57,7 @@ t_stack	*validate_input(t_stack *a, t_stack *b, int inputc, char *inputv[])
 	while (*++dummy)
 		if (!ft_isdigit(*dummy) && !is_permitted(*dummy))
 			return (free(++hold), submit_error(), exit(EXIT_FAILURE), NULL);
-	joined = ft_split(++hold, ' ');
+	joined = ft_split(++hold, WHITE_SPACE);
 	if (!joined.array)
 		return (free(hold), exit(EXIT_FAILURE), a);
 	while (joined.wordcount--)

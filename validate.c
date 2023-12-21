@@ -20,3 +20,16 @@ void	submit_error(void)
 {
 	return ((void)write(2, "Error\n", 6));
 }
+
+void	check_empty(int inputc, char *inputv[])
+{
+	int	i;
+
+
+	i = -1;
+	while (inputc--)
+		while (inputv[inputc][++i])
+			if (!ft_strchr(WHITE_SPACE, inputv[inputc][i]))
+				return ;
+	return (submit_error(), exit(EXIT_FAILURE));
+}

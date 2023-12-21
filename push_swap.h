@@ -18,6 +18,10 @@
 # include "validate.h"
 # include "operations.h"
 
+# ifndef WHITE_SPACE
+#  define WHITE_SPACE " \n\t\r\v\f"
+# endif // !WHITE_SPACE
+
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);
 void	free_2d(char **arr);
