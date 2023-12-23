@@ -76,7 +76,6 @@ t_stack	*validate_input(t_stack *a, t_stack *b, int inputc, char *inputv[])
 bool	is_permitted(int c)
 {
 	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\r' || c == '\v' || c == '\f'
 		|| c == '-' || c == '+');
 }
 

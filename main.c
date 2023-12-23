@@ -15,17 +15,14 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	init;
+	t_stack	init_a;
 	t_stack	*a;
-	t_stack	b;
 
+	if (argc <= 1)
+		return (0);
 	check_empty(--argc, ++argv);
-	if (argc > 1)
-	{
-		init = init_stack();
-		b = init_stack();
-		a = validate_input(&init, &b, --argc, ++argv);
-		(void)a; // for now
-	}
-	return (0);
+	init_a = init_stack();
+	a = validate_input(&init_a, NULL, argc, argv);
+	check_dupes(a);
+	return (free_elements(a), 0);
 }

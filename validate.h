@@ -25,4 +25,6 @@ char	*join_input_space(int inputc, char *inputv[]);
 t_stack	*validate_input(t_stack *a, t_stack *b, int argc, char *argv[]);
 void	submit_error(void);
 void	check_empty(int inputc, char *inputv[]);
+void	set_check_insert(t_stack *a);
+void	check_dupes(t_stack *a);
 #endif // !VALIDATE_H
