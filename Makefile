@@ -9,7 +9,7 @@ DIR_LIBFT := ./libft
 NAME := push_swap
 SRCS := init.c stack_operations.c free.c validate.c ps_operations.c \
 				ps_operations2.c ps_operations3.c validate_utils.c main.c
-INCLUDES := stack.h validate.h push_swap.h operations.h
+INCLUDES := stack.h validate.h push_swap.h operations.h hash_table.h
 
 # RULES
 all: $(SRCS) $(INCLUDES)
@@ -21,5 +21,6 @@ clean:
 
 fclean:
 	@make -C $(DIR_LIBFT) fclean
+	rm -rf $(NAME)
 
 re: fclean all
