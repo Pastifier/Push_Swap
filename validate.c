@@ -29,7 +29,6 @@ void	check_empty(int inputc, char *inputv[])
 {
 	int	i;
 
-
 	i = -1;
 	while (inputc--)
 		while (inputv[inputc][++i])
@@ -44,7 +43,6 @@ bool	set_insert(t_entry *set, int value, size_t set_size)
 
 	if (!set || !set_size)
 		return (true);
-
 	hash = my_abs(value % set_size);
 	if (set[hash].value == value)
 		return (true);
@@ -70,7 +68,7 @@ void	check_dupes(t_stack *a)
 	{
 		if (set_insert(set, dummy->value, a->capacity * 2))
 			return (free(set), free_elements(a),
-			submit_error(), exit(EXIT_FAILURE));
+				submit_error(), exit(EXIT_FAILURE));
 		dummy = dummy->below;
 	}
 	free(set);
