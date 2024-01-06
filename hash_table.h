@@ -6,6 +6,5 @@
 typedef struct s_hash_table_entry {
 	int		value;
 	bool	occupied;
-	size_t	hash;
 }	t_entry;
 #endif // !HASH_TABLE_H
