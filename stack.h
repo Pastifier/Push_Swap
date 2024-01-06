@@ -18,6 +18,7 @@
 /*----- LIST -----*/
 typedef struct s_node {
 	int				value;
+	int				index;
 	struct s_node	*above;
 	struct s_node	*below;
 }	t_node;

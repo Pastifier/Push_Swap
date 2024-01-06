@@ -38,6 +38,7 @@ void	stack_push(t_stack *stack, t_node *to_push, t_stack *other)
 		stack->top = to_push;
 	}
 	stack->capacity += 1;
+	to_push->index = stack->capacity - 1;
 }
 
 t_node	*stack_pop(t_stack *stack, t_stack *other)
@@ -53,6 +54,7 @@ t_node	*stack_pop(t_stack *stack, t_stack *other)
 	(stack->top)->above = NULL;
 	self->above = NULL;
 	self->below = NULL;
+	self->index = 0;
 	stack->capacity -= 1;
 	return (self);
 }
