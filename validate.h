@@ -19,12 +19,13 @@
 # include <unistd.h>    // For write
 # include <stdlib.h>    // For exit
 # include "stack.h"
+# include "hash_table.h"
 
 /*---- INPUT PARSING ----*/
 char	*join_input_space(int inputc, char *inputv[]);
-t_stack	*validate_input(t_stack *a, t_stack *b, int argc, char *argv[]);
+t_stack	*validate_input(t_stack *a, int argc, char *argv[]);
 void	submit_error(void);
 void	check_empty(int inputc, char *inputv[]);
 void	set_check_insert(t_stack *a);
-void	check_dupes(t_stack *a);
+bool	set_insert(t_entry *set, int value, size_t set_size);
 #endif // !VALIDATE_H

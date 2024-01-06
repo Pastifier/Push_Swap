@@ -12,10 +12,9 @@
 
 #include "push_swap.h"
 #include "validate.h"
+#include "hash_table.h"
 
-static bool	is_permitted(int c);
-static bool	validate_element(t_stack *a, t_stack *b, size_t index, char **ia);
-static bool	validate_result(t_stack *a, t_stack *b, char *hold, t_eint *result);
+static bool	validate_result(t_eint *result);
 
 char	*join_input_space(int inputc, char *inputv[])
 {
@@ -45,68 +44,42 @@ char	*join_input_space(int inputc, char *inputv[])
 	return (original);
 }
 
-t_stack	*validate_input(t_stack *a, t_stack *b, int inputc, char *inputv[])
+// TODO:
+// - Use the hashset WHILE pushing to optimise dupe-checking
+t_stack	*validate_input(t_stack *a, int inputc, char *inputv[])
 {
 	char	*hold;
-	char	*dummy;
 	t_split	joined;
 	t_eint	result;
+	size_t	set_size;
+	t_entry	*set;
 
 	hold = join_input_space(inputc, inputv);
-	dummy = --hold;
-	while (*++dummy)
-		if (!ft_isdigit(*dummy) && !is_permitted(*dummy))
-			return (free(++hold), submit_error(), exit(EXIT_FAILURE), NULL);
-	joined = ft_split(++hold, WHITE_SPACE);
-	if (!joined.array)
-		return (free(hold), exit(EXIT_FAILURE), a);
+	joined = ft_split(hold, WHITE_SPACE);
+	free(hold);
+	if (!joined.array || !joined.wordcount)
+		return (submit_error(), exit(EXIT_FAILURE), a);
+	set_size = joined.wordcount * 2;
+	set = ft_calloc(set_size, sizeof(t_entry));
+	if (!set)
+		return (submit_error(), free_2d(joined.array), exit(EXIT_FAILURE), a);
 	while (joined.wordcount--)
 	{
-		if (!validate_element(a, b, joined.wordcount, joined.array))
-			return (submit_error(), free(hold), a);
 		result = ft_atoi(joined.array[joined.wordcount]);
-		if (!validate_result(a, b, hold, &result))
-			return (free_2d(joined.array),
+		if (!validate_result(&result)
+			|| !set_insert(set, result.value, set_size))
+			return (free_2d(joined.array), free(set), free_elements(a),
 				submit_error(), exit(EXIT_FAILURE), a);
-		stack_push(a, create_node(result.value), b);
+		stack_push(a, create_node(result.value), NULL);
 	}
-	return (free_2d(joined.array), free(hold), a);
+	return (free_2d(joined.array), free(set), a);
 }
 
-bool	is_permitted(int c)
+bool	validate_result(t_eint *result)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '-' || c == '+');
-}
-
-bool	validate_result(t_stack *a, t_stack *b, char *hold, t_eint *result)
-{
+	if (result->operations < 1)
+		result->error = true;
 	if (result->error)
-		return (free_elements(a), free_elements(b), free(hold), false);
-	return (true);
-}
-
-bool	validate_element(t_stack *a, t_stack *b, size_t index, char **ia)
-{
-	char	curr;
-	char	next;
-	int		i;
-	bool	sign_flag;
-
-	sign_flag = false;
-	i = -1;
-	while (ia[index][++i])
-	{
-		curr = ia[index][i];
-		next = ia[index][i + 1];
-		if ((sign_flag && (is_permitted(curr)))
-			|| (ft_isdigit(curr) && (next == '-' || next == '+')))
-			return (free_elements(a), free_elements(b),
-				free_2d(ia), false);
-		sign_flag = (curr == '-' || curr == '+');
-		if (sign_flag && next == 0)
-			return (free_elements(a), free_elements(b),
-				free_2d(ia), false);
-	}
+		return (false);
 	return (true);
 }
