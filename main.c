@@ -18,11 +18,10 @@ int	main(int argc, char *argv[])
 	t_stack	init_a;
 	t_stack	*a;
 
-	if (argc <= 1)
+	if (argc < 2)
 		return (0);
 	check_empty(--argc, ++argv);
 	init_a = init_stack();
-	a = validate_input(&init_a, NULL, argc, argv);
-	check_dupes(a);
+	a = validate_input(&init_a, argc, argv);
 	return (free_elements(a), 0);
 }
