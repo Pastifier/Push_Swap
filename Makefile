@@ -7,9 +7,11 @@ DIR_LIBFT := ./libft
 
 # MAIN PROGRAM
 NAME := push_swap
-SRCS := init.c stack_operations.c free.c validate.c ps_operations.c \
+SRC := init.c stack_operations.c free.c validate.c ps_operations.c \
 				ps_operations2.c ps_operations3.c validate_utils.c main.c
-INCLUDES := stack.h validate.h push_swap.h operations.h hash_table.h
+srcs := $(addprefix srcs/, $(SRC))
+INCLUDE := stack.h validate.h push_swap.h operations.h hash_table.h
+INCLUDES := $(addprefix includes/, $(INCLUDE))
 
 # RULES
 all: $(SRCS) $(INCLUDES)
