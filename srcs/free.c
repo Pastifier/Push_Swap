@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:52:45 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:52:46 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/17 03:05:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stack.h"
 
 void	free_elements(t_stack *stack);
 void	free_2d(char **arr);
 
 void	free_elements(t_stack *stack)
 {
-	t_node	*top_node;
-	t_node	*next;
+	t_elem	*top_node;
+	t_elem	*next;
 
 	if (!stack)
 		return ;

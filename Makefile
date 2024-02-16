@@ -3,20 +3,20 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror -g3
 
 # LIBRARIES
-DIR_LIBFT := ./libft
+DIR_LIBFT := libft
 
 # MAIN PROGRAM
 NAME := push_swap
 SRC := init.c stack_operations.c free.c validate.c ps_operations.c \
 				ps_operations2.c ps_operations3.c validate_utils.c main.c
-srcs := $(addprefix srcs/, $(SRC))
-INCLUDE := stack.h validate.h push_swap.h operations.h hash_table.h
+SRCS := $(addprefix srcs/, $(SRC))
+INCLUDE := push_swap.h
 INCLUDES := $(addprefix includes/, $(INCLUDE))
 
 # RULES
 all: $(SRCS) $(INCLUDES)
 	@make -C $(DIR_LIBFT) re
-	$(CC) $(CFLAGS) -I. -o $(NAME) $(SRCS) -L$(DIR_LIBFT) -lft
+	$(CC) $(CFLAGS) -Iincludes -o $(NAME) $(SRCS) -L$(DIR_LIBFT) -Ilibft/includes -lft
 
 clean:
 	@make -C $(DIR_LIBFT) clean

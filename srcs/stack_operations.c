@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:53:39 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:45:50 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 // Assuming to_push has been popped, or is
 // an individual node.
-void	stack_push(t_stack *stack, t_node *to_push, t_stack *other)
+void	stack_push(t_stack *stack, t_elem *to_push, t_stack *other)
 {
-	t_node	*top_node;
-	t_node	*bot_node;
+	t_elem	*top_node;
+	t_elem	*bot_node;
 
 	if (!stack || !to_push)
 		return (submit_error(), free_elements(stack),
@@ -41,9 +41,9 @@ void	stack_push(t_stack *stack, t_node *to_push, t_stack *other)
 	to_push->index = stack->capacity - 1;
 }
 
-t_node	*stack_pop(t_stack *stack, t_stack *other)
+t_elem	*stack_pop(t_stack *stack, t_stack *other)
 {
-	t_node	*self;
+	t_elem	*self;
 
 	if (stack->capacity < 1 || !(stack->top))
 		return (submit_error(),
@@ -61,7 +61,7 @@ t_node	*stack_pop(t_stack *stack, t_stack *other)
 
 void	stack_rotate(t_stack *stack, t_stack *other)
 {
-	t_node	*iter;
+	t_elem	*iter;
 	int		top_value;
 	int		temp;
 
@@ -83,7 +83,7 @@ void	stack_rotate(t_stack *stack, t_stack *other)
 
 void	stack_rrotate(t_stack *stack, t_stack *other)
 {
-	t_node	*iter;
+	t_elem	*iter;
 	int		bot_value;
 	int		temp;
 
@@ -105,8 +105,8 @@ void	stack_rrotate(t_stack *stack, t_stack *other)
 
 void	stack_swap(t_stack *stack, t_stack *other)
 {
-	t_node	*top_below;
-	t_node	*top_node;
+	t_elem	*top_below;
+	t_elem	*top_node;
 	int		temp;
 
 	if (!stack || !stack->top)

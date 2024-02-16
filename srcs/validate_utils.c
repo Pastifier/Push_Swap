@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:48 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/20 21:53:49 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/17 03:06:10 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "validate.h"
-#include "hash_table.h"
 
 static bool	validate_result(t_eint *result);
 
@@ -70,7 +68,7 @@ t_stack	*validate_input(t_stack *a, int inputc, char *inputv[])
 			|| !set_insert(set, result.value, set_size))
 			return (free_2d(joined.array), free(set), free_elements(a),
 				submit_error(), exit(EXIT_FAILURE), a);
-		stack_push(a, create_node(result.value), NULL);
+		stack_push(a, create_element(result.value), NULL);
 	}
 	return (free_2d(joined.array), free(set), a);
 }
