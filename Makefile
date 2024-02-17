@@ -30,5 +30,4 @@ fclean:
 
 re: fclean all
 
-# Add .PHONY on next commit.
 .PHONY: all clean fclean re
