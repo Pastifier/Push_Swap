@@ -8,7 +8,8 @@ DIR_LIBFT := libft
 # MAIN PROGRAM
 NAME := push_swap
 SRC := init.c stack_operations.c free.c validate.c ps_operations.c \
-			ps_operations2.c ps_operations3.c validate_utils.c main.c
+			ps_operations2.c ps_operations3.c validate_utils.c main.c \
+			trivial_cases.c
 SRCS := $(addprefix srcs/, $(SRC))
 INCLUDE := push_swap.h
 INCLUDES := $(addprefix includes/, $(INCLUDE))
@@ -28,3 +29,6 @@ fclean:
 	rm -rf $(NAME)
 
 re: fclean all
+
+# Add .PHONY on next commit.
+.PHONY: all clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 03:06:59 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/17 08:04:59 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # endif // !WHITE_SPACE
 
 /*----- ELEMENT -----*/
-typedef struct s_elem {
+typedef struct s_elem
+{
 	int				value;
 	int				index;
 	struct s_elem	*above;
@@ -30,7 +31,8 @@ typedef struct s_elem {
 t_elem	*create_element(int value);
 
 /*----- STACK -----*/
-typedef struct s_stack {
+typedef struct s_stack
+{
 	size_t	capacity;
 	t_elem	*top;
 	t_elem	*bottom;
@@ -71,6 +73,13 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a, t_stack *b);
 void	rrb(t_stack *b, t_stack *a);
 void	rrr(t_stack *a, t_stack *b);
+
+/*--- SORTING ---*/
+
+bool	issorted(t_stack *stack);
+void	sort_two(t_stack *stack);
+void	sort_three(t_stack *stack);
+
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);
