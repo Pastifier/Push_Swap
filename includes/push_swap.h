@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 08:04:59 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/19 02:54:29 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	*join_input_space(int inputc, char *inputv[]);
 t_stack	*validate_input(t_stack *a, int argc, char *argv[]);
 void	submit_error(void);
 void	check_empty(int inputc, char *inputv[]);
-void	set_check_insert(t_stack *a);
 bool	set_insert(t_entry *set, int value, size_t set_size);
 
 /*--- PUSH_SWAP-OPERATIONS ---*/
@@ -79,7 +78,7 @@ void	rrr(t_stack *a, t_stack *b);
 bool	issorted(t_stack *stack);
 void	sort_two(t_stack *stack);
 void	sort_three(t_stack *stack);
-
+void	sort_fourfive(t_stack *a, t_stack *b);
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);
