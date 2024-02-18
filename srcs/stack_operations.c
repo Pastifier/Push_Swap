@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 02:45:50 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/19 02:26:31 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,13 @@ t_elem	*stack_pop(t_stack *stack, t_stack *other)
 			free_elements(stack), free_elements(other),
 			exit(EXIT_FAILURE), NULL);
 	self = stack->top;
-	stack->top = self->below;
-	(stack->top)->above = NULL;
+	if (stack->capacity > 1)
+	{
+		stack->top = self->below;
+		(stack->top)->above = NULL;
+	}
+	else
+		stack->top = NULL;
 	self->above = NULL;
 	self->below = NULL;
 	self->index = 0;
