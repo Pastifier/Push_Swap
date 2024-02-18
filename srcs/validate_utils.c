@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:48 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 03:06:10 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/17 08:47:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*join_input_space(int inputc, char *inputv[])
 	return (original);
 }
 
-// TODO:
-// - Use the hashset WHILE pushing to optimise dupe-checking
 t_stack	*validate_input(t_stack *a, int inputc, char *inputv[])
 {
 	char	*hold;
