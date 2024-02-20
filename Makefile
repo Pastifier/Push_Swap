@@ -7,7 +7,7 @@ DIR_LIBFT := libft
 
 # MAIN PROGRAM
 NAME := push_swap
-SRC := init.c stack_operations.c free.c validate.c ps_operations.c \
+SRC := init.c stack_operations.c stack_utils.c free.c validate.c ps_operations.c \
 			ps_operations2.c ps_operations3.c validate_utils.c main.c \
 			trivial_cases.c
 SRCS := $(addprefix srcs/, $(SRC))

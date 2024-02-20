@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:19 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 03:05:58 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/19 03:02:41 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sa(t_stack *a, t_stack *b)
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b, t_stack *a)
+void	sb(t_stack *a, t_stack *b)
 {
 	stack_swap(b, a);
 	write(1, "sb\n", 3);
