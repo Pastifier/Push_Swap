@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 07:48:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/20 14:49:37 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/22 02:57:04 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,15 @@ void	sort_two_both(t_stack *a, t_stack *b)
 		ss(a, b);
 }
 
-void sort_three(t_stack *stack)
+void	sort_three(t_stack *stack)
 {
-	int a = stack->top->value;
-	int b = stack->top->below->value;
-	int c = stack->bottom->value;
+	int	a;
+	int	b;
+	int	c;
 
+	a = stack->top->value;
+	b = stack->top->below->value;
+	c = stack->bottom->value;
 	if (a > b && b > c)
 		(ra(stack, NULL), sa(stack, NULL));
 	else if (a < b && b > c && a < c)
