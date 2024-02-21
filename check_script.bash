@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo  "Push_Swap:"
-./push_swap $@;
+valgrind -s --leak-check=full --show-mismatched-frees=yes ./push_swap $@;
 
 echo -n "Checker: ";
 ./push_swap $@ | ./checker_linux $@;

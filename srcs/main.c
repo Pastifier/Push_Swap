@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/19 07:36:37 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:25:47 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 			sort_two(&a, A);
 		else if (a.capacity == 3)
 			sort_three(&a);
-		else if (a.capacity == 4 || a.capacity == 5)
+		else if (a.capacity <= 5)
 			sort_five(&a, &b);
 	}
 	return (free_elements(&a), 0);
