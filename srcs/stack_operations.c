@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/19 09:38:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 00:33:25 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	stack_push(t_stack *stack, t_elem *to_push, t_stack *other)
 		stack->bottom = to_push;
 	stack->capacity += 1;
 	to_push->index = stack->capacity - 1;
-	stack_set_greatest(stack);
-	stack_set_least(stack);
 }
 
 t_elem	*stack_pop(t_stack *stack, t_stack *other)
@@ -62,8 +60,6 @@ t_elem	*stack_pop(t_stack *stack, t_stack *other)
 	self->below = NULL;
 	self->index = 0;
 	stack->capacity -= 1;
-	stack_set_greatest(stack);
-	stack_set_least(stack);
 	return (self);
 }
 

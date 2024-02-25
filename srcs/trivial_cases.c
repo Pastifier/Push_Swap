@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trivial_cases.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 07:48:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/22 02:57:04 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 00:34:17 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,11 @@ void	sort_three(t_stack *stack)
 
 void	sort_five(t_stack *a, t_stack *b)
 {
-	while (a->capacity > 3)
+	stack_set_least(a);
+	while (a->capacity > 3 && !issorted(a))
 	{
 		if (a->top->value == a->least)
-			pb(a, b);
+			(pb(a, b), stack_set_least(a));
 		else if (a->bottom->value == a->least)
 			rra(a, b);
 		else if (a->bottom->above->value == a->least)
