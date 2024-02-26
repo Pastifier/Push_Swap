@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 10:00:44 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:28:30 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	stack_rotate(t_stack *stack, t_stack *other)
 		return (submit_error(),
 			free_elements(stack), free_elements(other),
 			exit(EXIT_FAILURE));
-	dummy = stack->top;
+	dummy = stack->top;													// 
 	stack->top = stack->top->below;
 	dummy->above = stack->bottom;
 	dummy->below = NULL;

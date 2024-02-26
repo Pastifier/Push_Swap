@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 07:48:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 09:53:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:15:23ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ void	sort_three(t_stack *stack)
 	a = stack->top->value;
 	b = stack->top->below->value;
 	c = stack->bottom->value;
-	if (a > b && b > c)
+	if (a > b && b > c)													// 3 2 1
 		(ra(stack, NULL), sa(stack, NULL));
-	else if (a < b && b > c && a < c)
+	else if (a < b && b > c && a < c)									// 1 3 2
 		(rra(stack, NULL), sa(stack, NULL));
-	else if (a > b && b < c && a < c)
+	else if (a > b && b < c && a < c)									// 2 1 3
 		sa(stack, NULL);
-	else if (a < b && b > c && a > c)
+	else if (a < b && b > c && a > c)									// 2 3 1
 		rra(stack, NULL);
-	else if (a > b && b < c && a > c)
+	else if (a > b && b < c && a > c)									// 3 1 2
 		ra(stack, NULL);
 }
 
@@ -81,5 +81,4 @@ void	sort_five(t_stack *a, t_stack *b)
 	sort_three(a);
 	while (b->top)
 		pa(a, b);
-	print_stacks(a, b);
 }

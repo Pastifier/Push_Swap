@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:52:54 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/19 05:52:28 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:13:30 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ void    print_stacks(t_stack *stack, t_stack *other)
     t_elem  *iterb;
 
     itera = stack->top;
-    iterb = other->top;
+	if (other)
+    	iterb = other->top;
+	else
+		iterb = NULL;
     ft_putendl_fd("---a---    ---b---", STDOUT_FILENO);
     while (itera || iterb)
     {
