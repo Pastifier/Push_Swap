@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 07:48:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 09:40:59 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:53:38 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	sort_five(t_stack *a, t_stack *b)
 	sort_three(a);
 	while (b->top)
 		pa(a, b);
+	print_stacks(a, b);
 }
