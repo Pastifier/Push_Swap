@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/19 09:08:21 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:43:07 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 typedef struct s_elem
 {
 	int				value;
-	int				index;
 	struct s_elem	*above;
 	struct s_elem	*below;
 }	t_elem;

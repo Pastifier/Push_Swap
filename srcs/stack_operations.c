@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 00:33:25 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:52:37 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	stack_push(t_stack *stack, t_elem *to_push, t_stack *other)
 	if (!bot_node)
 		stack->bottom = to_push;
 	stack->capacity += 1;
-	to_push->index = stack->capacity - 1;
 }
 
 t_elem	*stack_pop(t_stack *stack, t_stack *other)
@@ -58,14 +57,13 @@ t_elem	*stack_pop(t_stack *stack, t_stack *other)
 		stack->top = NULL;
 	self->above = NULL;
 	self->below = NULL;
-	self->index = 0;
 	stack->capacity -= 1;
 	return (self);
 }
 
 void	stack_rotate(t_stack *stack, t_stack *other)
 {
-	t_elem	*iter;
+	t_elem	*dummy;
 	int		top_value;
 	int		temp;
 
@@ -73,16 +71,12 @@ void	stack_rotate(t_stack *stack, t_stack *other)
 		return (submit_error(),
 			free_elements(stack), free_elements(other),
 			exit(EXIT_FAILURE));
-	iter = stack->top;
-	top_value = iter->value;
-	while (iter->below)
-	{
-		temp = iter->value;
-		iter->value = (iter->below)->value;
-		(iter->below)->value = temp;
-		iter = iter->below;
-	}
-	iter->value = top_value;
+	dummy = stack->top;
+	stack->top = stack->top->below;
+	dummy->above = stack->bottom;
+	dummy->below = NULL;
+	stack->bottom->below = dummy;
+	stack->top->above = NULL;
 }
 
 void	stack_rrotate(t_stack *stack, t_stack *other)
