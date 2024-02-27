@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:52:54 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 21:13:30 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:15:09 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,12 @@ void    print_stacks(t_stack *stack, t_stack *other)
     t_elem  *itera;
     t_elem  *iterb;
 
-    itera = stack->top;
-	if (other)
-    	iterb = other->top;
-	else
-		iterb = NULL;
-    ft_putendl_fd("---a---    ---b---", STDOUT_FILENO);
+	itera = (stack && stack->top) ? stack->top : NULL;
+	iterb = (other && other->top) ? other->top : NULL;
+    ft_putendl_fd("      ---a---          ---b---", STDOUT_FILENO);
     while (itera || iterb)
     {
-        ft_putstr_fd("   ", STDOUT_FILENO);
+		((itera == stack->top) ? ft_putstr_fd("  top->  ", STDOUT_FILENO) : ft_putstr_fd("         ", STDOUT_FILENO));
         if (itera)
         {
             ft_putnbr_fd(itera->value, STDOUT_FILENO);
@@ -50,7 +47,7 @@ void    print_stacks(t_stack *stack, t_stack *other)
         else
             ft_putstr_fd(" ", STDOUT_FILENO);
 
-        ft_putstr_fd("          ", STDOUT_FILENO);
+        ft_putstr_fd("         ", STDOUT_FILENO);
 
         if (iterb)
         {
@@ -65,5 +62,5 @@ void    print_stacks(t_stack *stack, t_stack *other)
 
         ft_putendl_fd("", STDOUT_FILENO);
     }
-    ft_putendl_fd("--xax--    --xbx--", STDOUT_FILENO);
+    ft_putendl_fd("      --xax--          --xbx--", STDOUT_FILENO);
 }

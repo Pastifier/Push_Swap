@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 07:48:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 21:15:23ebinjama         ###   ########.fr       */
+/*   Created: 2024/02/27 03:34:12 by ebinjama          #+#    #+#             */
+/*   Updated: 2024/02/27 06:13:53 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ void	sort_three(t_stack *stack)
 	a = stack->top->value;
 	b = stack->top->below->value;
 	c = stack->bottom->value;
-	if (a > b && b > c)													// 3 2 1
+	if (a > b && b > c)
 		(ra(stack, NULL), sa(stack, NULL));
-	else if (a < b && b > c && a < c)									// 1 3 2
+	else if (a < b && b > c && a < c)
 		(rra(stack, NULL), sa(stack, NULL));
-	else if (a > b && b < c && a < c)									// 2 1 3
+	else if (a > b && b < c && a < c)
 		sa(stack, NULL);
-	else if (a < b && b > c && a > c)									// 2 3 1
+	else if (a < b && b > c && a > c)
 		rra(stack, NULL);
-	else if (a > b && b < c && a > c)									// 3 1 2
+	else if (a > b && b < c && a > c)
 		ra(stack, NULL);
 }
 
@@ -79,6 +79,6 @@ void	sort_five(t_stack *a, t_stack *b)
 			ra(a, b);
 	}
 	sort_three(a);
-	while (b->top)
+	while (b->top && a->capacity < 5)
 		pa(a, b);
 }
