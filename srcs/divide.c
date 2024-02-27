@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 04:27:37 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 11:48:07 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:00:12 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	pivot_around_two_thirds(t_stack *stack, t_stack *other)
 		return (false);
 	pivot_index = 2 * (stack->capacity) / 3;
 	count_pb = 0;
-	while (count_pb <= pivot_index / 2)
+	while (count_pb <= pivot_index - 1)
 	{
 		if (stack->top->value < arr[pivot_index])
 			(pb(stack, other), ++count_pb);
