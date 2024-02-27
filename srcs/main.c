@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 06:20:45 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:46:26 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	main(int argc, char *argv[])
 		else if (a.capacity > 5)
 			sort_big(&a, &b);
 	}
-	print_stacks(&a, &b);
+	//print_stacks(&a, &b);
 	return (free_elements(&a), 0);
 }
