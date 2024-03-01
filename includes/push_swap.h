@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 10:46:39 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:14:44 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,22 @@ void	rrr(t_stack *a, t_stack *b);
 
 /*--- SORTING ---*/
 
+typedef struct s_arr
+{
+	int		*arr;
+	size_t	size;
+	size_t	last_pivot;
+}	t_arr;
+
 bool	issorted(t_stack *stack);
 void	sort_two(t_stack *stack, bool a_or_b);
 void	sort_three(t_stack *stack);
+void	sort_three_on_top(t_stack *a, t_stack *b);
 void	sort_five(t_stack *a, t_stack *b);
 void	sort_big(t_stack *a, t_stack *b);
 void	merge_sort(int *arr, size_t p, size_t r);
 int		*dup_stack_to_array_sort(t_stack *stack);
 bool	pivot_around_two_thirds(t_stack *stack, t_stack *other);
-void	push_back_two_thirds(t_stack *stack, t_stack *other);
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);

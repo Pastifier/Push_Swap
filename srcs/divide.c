@@ -6,12 +6,13 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 04:27:37 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 12:00:12 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:23:11y ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+// TODO:
+//	pass in the sorted array as info.
 bool	pivot_around_two_thirds(t_stack *stack, t_stack *other)
 {
 	int		*arr;
@@ -36,20 +37,10 @@ bool	pivot_around_two_thirds(t_stack *stack, t_stack *other)
 			ra(stack, other);
 	}
 	free(arr);
+	if (stack->capacity == 2)
+		sort_two(stack, A);
+	else if (stack->capacity == 3)
+		sort_three(stack);
 	fetch = pivot_around_two_thirds(stack, other);
 	return (true * fetch);
-}
-
-void	push_back_two_thirds(t_stack *stack, t_stack *other)
-{
-	size_t	initial_capacity;
-
-	initial_capacity = other->capacity - (stack->capacity + 2 * stack->capacity);
-	while (other->capacity > initial_capacity)
-	{
-		if (other->top->value < stack->top->value)
-			(pa(stack, other), ra(stack, other));
-		if (other->top->value > stack->top->value)
-			(ra(stack, other), pa(stack, other), rra(stack, other));
-	}
 }

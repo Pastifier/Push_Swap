@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 03:34:12 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 06:13:53 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:57:27 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	sort_two(t_stack *stack, bool is_a)
 void	sort_two_both(t_stack *a, t_stack *b)
 {
 	if (a->top->value > a->top->below->value
-		&& b->top->value > b->top->below->value)
+		&& b->top->value < b->top->below->value)
 		ss(a, b);
+	else if (a->top->value > a->top->below->value)
+		sa(a, b);
 }
 
 void	sort_three(t_stack *stack)
