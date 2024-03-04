@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:59:04 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/02 19:13:05 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/03 14:45:50y ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,11 @@ void	push_half_chunk(t_stack *a, t_stack *b, t_arr *map, size_t chunk_size)
 	}
 	if (pa_count == 3)
 		sort_three_on_top(a, b);
+	map->last_pivot -= pa_count;
 	while (--pa_count)
 		rrb(a, b);
 	while (b->top && pa_count < chunk_size / 2)
-		(pa(a, b), ++pa_count);
+		(pa(a, b), ++pa_count, --map->last_pivot);
 	if (pa_count == 3)
 		sort_three_on_top(a, b);
-	//print_stacks(a, b);
-	exit(0);
 }

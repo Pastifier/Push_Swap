@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/02 17:55:20 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:00:23 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_stack
 	int		least;
 	int		greatest;
 }	t_stack;
+
+typedef t_stack*	t_sptr;
 
 void	stack_swap(t_stack *stack, t_stack *other);
 void	stack_cmp(t_stack *stack, t_elem *to_push);
