@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/04 13:00:23 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/05 09:49:51 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ void	sort_two(t_stack *stack, bool a_or_b);
 void	sort_three(t_stack *stack);
 void	sort_three_on_top(t_stack *a, t_stack *b);
 void	sort_five(t_stack *a, t_stack *b);
-void	sort_big(t_stack *a, t_stack *b, t_arr *map);
+void	sort_big(t_stack *a, t_stack *b, t_arr map);
 void	merge_sort(int *arr, size_t p, size_t r);
 int		*dup_stack_to_array_sort(t_stack *stack);
-void	pivot_around_two_thirds(t_stack *stack, t_stack *other, t_arr *map);
-void	push_half_chunk(t_stack *a, t_stack *b, t_arr *map, size_t chunk_size);
+void	pivot_around_two_thirds(t_stack *stack, t_stack *other, t_arr map);
+void	push_half_chunk(t_stack *a, t_stack *b, t_arr map, size_t chunk_size);
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);

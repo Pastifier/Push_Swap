@@ -33,17 +33,16 @@ void	sort_three_on_top(t_stack *a, t_stack *b)
 		(sa(a, b), pb(a, b), sa(a, b), pa(a, b), sa(a, b));	
 }
 
-void	push_half_chunk(t_stack *a, t_stack *b, t_arr *map, size_t chunk_size)
+void	push_half_chunk(t_stack *a, t_stack *b, t_arr map, size_t chunk_size)
 {
 	size_t	pa_count;
 
-	map->last_pivot -= a->capacity; 
 	pa_count = 0;
 	while (b->top && pa_count < chunk_size / 2)
 	{
-		if (b->top->value >= map->arr[map->last_pivot])
+		if (b->top->value >= map.arr[map.last_pivot])
 			(pa(a, b), ++pa_count);
-		else if (b->bottom->value >= map->arr[map->last_pivot])
+		else if (b->bottom->value >= map.arr[map.last_pivot])
 			(rrb(a, b), pa(a, b), ++pa_count);
 		else
 			rb(a, b);
