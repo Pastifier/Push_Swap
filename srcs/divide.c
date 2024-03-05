@@ -6,35 +6,55 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:27:58 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/05 09:49:33 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:14:20 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pivot_around_two_thirds(t_stack *stack, t_stack *other, t_arr map)
-{
-	size_t	count_pb;
-	size_t	chunk_size;
+static void	rotate_till_done(t_stack *a, t_stack *b, t_arr map);
+static void	rrotate_till_done(t_stack *a, t_stack *b, t_arr map);
 
-	if (stack->capacity <= 3)
+void	pivot_around_two_thirds(t_stack *a, t_stack *b, t_arr map, bool flag)
+{
+	if (map.chunk_size <= 3)
 		return ;
-	count_pb = map.last_pivot;
-	map.last_pivot += 2 * (stack->capacity) / 3;
-	chunk_size = 0;
-	while (count_pb < map.last_pivot)
+	
+	if (flag == ROTATE)
+		rotate_till_done(a, b, edit_map(map));
+	else
+		rrotate_till_done(a, b, edit_map(map));
+	if (map.chunk_size / 3 == 2)
+		sort_two(a, b);
+	else if (map.chunk_size / 3 == 3)
+		sort_three(a);
+	pivot_around_two_thirds(a, b, edit_map(map), flag);
+}
+
+static void	rotate_till_done(t_stack *a, t_stack *b, t_arr map)
+{
+	size_t	pb_count;
+
+	pb_count = 0;
+	while (pb_count < 2 * map.chunk_size)
 	{
-		if (stack->top->value < map.arr[map.last_pivot])
-			(pb(stack, other), ++count_pb, ++chunk_size);
-		else if (stack->bottom->value < map.arr[map.last_pivot])
-			(rra(stack, other), pb(stack, other), ++count_pb, ++chunk_size);
+		if (a->top->value < map.arr[map.chunk_pivot])
+			(pb(a, b), ++pb_count);
 		else
-			ra(stack, other);
+			ra(a, b);
 	}
-	pivot_around_two_thirds(stack, other, map);
-	if (stack->capacity == 2)
-		sort_two(stack, A);
-	else if (stack->capacity == 3)
-		sort_three(stack);
-	push_half_chunk(stack, other, map, chunk_size);
+}
+
+static void	rrotate_till_done(t_stack *a, t_stack *b, t_arr map)
+{
+	size_t	pb_count;
+
+	pb_count = 0;
+	while (pb_count < 2 * map.chunk_size)
+	{
+		if (a->top->value < map.arr[map.chunk_pivot])
+			(pb(a, b), ++pb_count);
+		else
+			rra(a, b);
+	}
 }

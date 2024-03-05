@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/05 09:49:51 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:56:27 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@
 
 /*--- CONST. -- DEFINES ---*/
 
-# define SWAP 0
-# define PUSH 1
-# define ROTATE 2
-# define REVERSE 3
+# define ROTATE 0
+# define RROTATE 1
 
 # define A 1
 # define B 0
@@ -93,20 +91,21 @@ void	rrr(t_stack *a, t_stack *b);
 typedef struct s_arr
 {
 	int		*arr;
-	size_t	size;
-	size_t	last_pivot;
+	size_t	chunk_size;
+	size_t	chunk_pivot;
 }	t_arr;
 
 bool	issorted(t_stack *stack);
 void	sort_two(t_stack *stack, bool a_or_b);
 void	sort_three(t_stack *stack);
 void	sort_three_on_top(t_stack *a, t_stack *b);
-void	sort_five(t_stack *a, t_stack *b);
-void	sort_big(t_stack *a, t_stack *b, t_arr map);
 void	merge_sort(int *arr, size_t p, size_t r);
 int		*dup_stack_to_array_sort(t_stack *stack);
-void	pivot_around_two_thirds(t_stack *stack, t_stack *other, t_arr map);
-void	push_half_chunk(t_stack *a, t_stack *b, t_arr map, size_t chunk_size);
+t_arr	create_map(int *sorted_arr, size_t troop_count, size_t unit_weakness);
+t_arr	edit_map(t_arr map);
+void	pivot_around_two_thirds(t_stack *a, t_stack *b, t_arr map, bool flag);
+void	push_half_back(t_stack *a, t_stack *b, t_arr map, bool flag);
+void	push_the_rest(t_stack *a, t_stack *b, t_arr map, bool flag);
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);

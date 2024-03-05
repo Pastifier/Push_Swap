@@ -10,7 +10,7 @@ NAME := push_swap
 
 SRC := init.c stack_operations.c stack_utils.c free.c validate.c ps_operations.c \
 			ps_operations2.c ps_operations3.c validate_utils.c divide.c conquer.c main.c \
-			trivial_cases.c merge_sort.c sort.c
+			trivial_cases.c up_in_arms.c rendezvous.c
 SRCS := $(addprefix srcs/, $(SRC))
 INCLUDE := push_swap.h
 INCLUDES := $(addprefix includes/, $(INCLUDE))

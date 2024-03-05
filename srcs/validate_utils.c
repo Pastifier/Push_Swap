@@ -1,81 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_utils.c                                   :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:53:48 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/17 08:47:42 by ebinjama         ###   ########.fr       */
+/*   Created: 2023/12/20 21:53:54 by ebinjama          #+#    #+#             */
+/*   Updated: 2024/02/17 03:06:16 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	validate_result(t_eint *result);
+static void	check_empty_string(const char *str);
 
-char	*join_input_space(int inputc, char *inputv[])
+void	submit_error(void)
 {
-	char	*original;
-	char	*self;
-	ssize_t	count;
-	ssize_t	loa;
+	return ((void)write(2, "Error\n", 6));
+}
 
-	loa = 0;
-	count = inputc;
+void	check_empty(int inputc, char *inputv[])
+{
 	while (inputc--)
-		loa += ft_strlen(inputv[inputc]);
-	self = malloc(sizeof(char) * (loa + count + 1));
-	if (!self)
-		return (submit_error(), exit(EXIT_FAILURE), NULL);
-	original = self;
-	loa = -1;
-	while (++loa < count)
-	{
-		while (*inputv[loa])
-		{
-			*self++ = *inputv[loa]++;
-		}
-		*self++ = ' ';
-	}
-	*self = 0;
-	return (original);
+		check_empty_string(inputv[inputc]);
 }
 
-t_stack	*validate_input(t_stack *a, int inputc, char *inputv[])
+bool	set_insert(t_entry *set, int value, size_t set_size)
 {
-	char	*hold;
-	t_split	joined;
-	t_eint	result;
-	size_t	set_size;
-	t_entry	*set;
+	ssize_t	prelim;
+	size_t	hash;
 
-	hold = join_input_space(inputc, inputv);
-	joined = ft_split(hold, WHITE_SPACE);
-	free(hold);
-	if (!joined.array || !joined.wordcount)
-		return (submit_error(), exit(EXIT_FAILURE), a);
-	set_size = joined.wordcount * 2;
-	set = ft_calloc(set_size, sizeof(t_entry));
-	if (!set)
-		return (submit_error(), free_2d(joined.array), exit(EXIT_FAILURE), a);
-	while (joined.wordcount--)
-	{
-		result = ft_atoi(joined.array[joined.wordcount]);
-		if (!validate_result(&result)
-			|| !set_insert(set, result.value, set_size))
-			return (free_2d(joined.array), free(set), free_elements(a),
-				submit_error(), exit(EXIT_FAILURE), a);
-		stack_push(a, create_element(result.value), NULL);
-	}
-	return (free_2d(joined.array), free(set), a);
-}
-
-bool	validate_result(t_eint *result)
-{
-	if (result->operations < 1)
-		result->error = true;
-	if (result->error)
+	if (!set || !set_size)
 		return (false);
+	prelim = value % set_size;
+	if (prelim < 0)
+		prelim *= -1;
+	hash = prelim;
+	if (set[hash].occupied && set[hash].value == value)
+		return (false);
+	if (set[hash].occupied)
+	{
+		while (set[++hash].occupied)
+		{
+			if (set[hash].value == value)
+				return (false);
+			if (hash >= set_size)
+				hash = 0;
+		}
+	}
+	set[hash].occupied = true;
+	set[hash].value = value;
 	return (true);
+}
+
+bool	is_white(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n');
+}
+
+void	check_empty_string(const char *str)
+{
+	while (is_white(*str))
+		++str;
+	if (!*str)
+		return (submit_error(), exit(EXIT_FAILURE));
 }
