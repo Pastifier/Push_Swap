@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/02 14:04:50 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/05 09:46:03 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 		else if (a.capacity <= 5)
 			sort_five(&a, &b);
 		else if (a.capacity > 5)
-			sort_big(&a, &b, &map);
+			sort_big(&a, &b, map);
 	}
 	print_stacks(&a, &b);
 	return (free_elements(&a), free(map.arr), 0);
