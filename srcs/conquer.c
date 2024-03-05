@@ -50,11 +50,12 @@ void	push_half_chunk(t_stack *a, t_stack *b, t_arr *map, size_t chunk_size)
 	}
 	if (pa_count == 3)
 		sort_three_on_top(a, b);
-	map->last_pivot -= pa_count;
 	while (--pa_count)
 		rrb(a, b);
 	while (b->top && pa_count < chunk_size / 2)
-		(pa(a, b), ++pa_count, --map->last_pivot);
+		(pa(a, b), ++pa_count);
 	if (pa_count == 3)
 		sort_three_on_top(a, b);
+	print_stacks(a, b);
+	exit(0);
 }
