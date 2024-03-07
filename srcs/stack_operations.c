@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:38 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/26 21:45:09 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:08:29 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	stack_push(t_stack *stack, t_elem *to_push, t_stack *other)
 		stack->top = to_push;
 	if (!bot_node)
 		stack->bottom = to_push;
+	if (stack->best_of_both_worlds < to_push->value)
+		stack->best_of_both_worlds = to_push->value;
 	stack->capacity += 1;
 }
 
