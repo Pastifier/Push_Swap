@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/07 18:08:37 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:53:21 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,20 +89,13 @@ void	rrr(t_stack *a, t_stack *b);
 
 /*--- SORTING ---*/
 
-typedef struct s_arr
-{
-	int		*arr;
-	size_t	chunk_size;
-	size_t	chunk_pivot;
-}	t_arr;
-
 bool	issorted(t_stack *stack);
 void	sort_two(t_stack *stack, bool a_or_b);
 void	sort_three(t_stack *stack);
-void	sort_three_on_top(t_stack *a, t_stack *b);
+void	sort_five(t_stack *a, t_stack *b);
 void	merge_sort(int *arr, size_t p, size_t r);
-int		*dup_stack_to_array_sort(t_stack *stack);
-t_arr	edit_map(t_arr map);
+int		*cpy_stack_to_array_sort(t_stack *stack);
+void	radix_sort(t_stack *a, t_stack *b, int *sorted_arr);
 
 /*----- FREE -----*/
 void	free_elements(t_stack *stack);

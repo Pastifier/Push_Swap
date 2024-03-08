@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trivial_cases.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 03:34:12 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/01 14:57:27 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:42:31 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	sort_two_both(t_stack *a, t_stack *b)
 		ss(a, b);
 	else if (a->top->value > a->top->below->value)
 		sa(a, b);
+	if (b->top->value < b->top->below->value)
+		sb(a, b);
 }
 
 void	sort_three(t_stack *stack)
@@ -74,13 +76,15 @@ void	sort_five(t_stack *a, t_stack *b)
 		if (a->top->value == a->least)
 			(pb(a, b), stack_set_least(a));
 		else if (a->bottom->value == a->least)
-			rra(a, b);
+			(rra(a, b), pb(a, b), stack_set_least(a));
 		else if (a->bottom->above->value == a->least)
-			rra(a, b);
+			(rra(a, b), rra(a, b), pb(a, b), stack_set_least(a));
 		else
 			ra(a, b);
 	}
 	sort_three(a);
-	while (b->top && a->capacity < 5)
+	while (b->top)
+	{
 		pa(a, b);
+	}
 }

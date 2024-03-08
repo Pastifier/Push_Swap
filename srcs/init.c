@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:52:54 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/27 03:15:09 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:47:16 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,42 @@ t_elem	*create_element(int value)
 	return (self);
 }
 
-void    print_stacks(t_stack *stack, t_stack *other)
-{
-    t_elem  *itera;
-    t_elem  *iterb;
+//void    print_stacks(t_stack *stack, t_stack *other)
+//{
+//    t_elem  *itera;
+//    t_elem  *iterb;
 
-	itera = (stack && stack->top) ? stack->top : NULL;
-	iterb = (other && other->top) ? other->top : NULL;
-    ft_putendl_fd("      ---a---          ---b---", STDOUT_FILENO);
-    while (itera || iterb)
-    {
-		((itera == stack->top) ? ft_putstr_fd("  top->  ", STDOUT_FILENO) : ft_putstr_fd("         ", STDOUT_FILENO));
-        if (itera)
-        {
-            ft_putnbr_fd(itera->value, STDOUT_FILENO);
-            if (!itera->below)
-                itera = NULL;
-            else
-                itera = itera->below;
-        }
-        else
-            ft_putstr_fd(" ", STDOUT_FILENO);
+//	itera = (stack && stack->top) ? stack->top : NULL;
+//	iterb = (other && other->top) ? other->top : NULL;
+//    ft_putendl_fd("      ---a---          ---b---", STDOUT_FILENO);
+//    while (itera || iterb)
+//    {
+//		((itera == stack->top) ? ft_putstr_fd("  top->  ", STDOUT_FILENO) : ft_putstr_fd("         ", STDOUT_FILENO));
+//        if (itera)
+//        {
+//            ft_putnbr_fd(itera->value, STDOUT_FILENO);
+//            if (!itera->below)
+//                itera = NULL;
+//            else
+//                itera = itera->below;
+//        }
+//        else
+//            ft_putstr_fd(" ", STDOUT_FILENO);
 
-        ft_putstr_fd("         ", STDOUT_FILENO);
+//        ft_putstr_fd("         ", STDOUT_FILENO);
 
-        if (iterb)
-        {
-            ft_putnbr_fd(iterb->value, STDOUT_FILENO);
-            if (!iterb->below)
-                iterb = NULL;
-            else
-                iterb = iterb->below;
-        }
-        else
-            ft_putstr_fd(" ", STDOUT_FILENO);
+//        if (iterb)
+//        {
+//            ft_putnbr_fd(iterb->value, STDOUT_FILENO);
+//            if (!iterb->below)
+//                iterb = NULL;
+//            else
+//                iterb = iterb->below;
+//        }
+//        else
+//            ft_putstr_fd(" ", STDOUT_FILENO);
 
-        ft_putendl_fd("", STDOUT_FILENO);
-    }
-    ft_putendl_fd("      --xax--          --xbx--", STDOUT_FILENO);
-}
+//        ft_putendl_fd("", STDOUT_FILENO);
+//    }
+//    ft_putendl_fd("      --xax--          --xbx--", STDOUT_FILENO);
+//}

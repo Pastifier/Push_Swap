@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:17:00 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/07 18:05:06 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:33:38 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	stack_set_least(t_stack *stack)
 	stack->least = temp;
 }
 
-int	*dup_stack_to_array_sort(t_stack *stack)
+int	*cpy_stack_to_array_sort(t_stack *stack)
 {
 	size_t	i;
 	t_elem	*iter;

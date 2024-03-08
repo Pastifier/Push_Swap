@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:53:06 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/03/05 16:58:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:45:00 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char *argv[])
 {
 	static t_stack	a;
 	static t_stack	b;
-	t_arr			map;
+	int				*sorted_arr;
 
 	if (argc < 2)
 		return (0);
@@ -24,18 +24,15 @@ int	main(int argc, char *argv[])
 	validate_input(&a, argc, argv);
 	if (!issorted(&a))
 	{
-		map = (t_arr){.arr = dup_stack_to_array_sort(&a),
-			.chunk_size = a.capacity,
-			.chunk_pivot = 0};
-		if (!map.arr)
+		sorted_arr = cpy_stack_to_array_sort(&a);
+		if (!sorted_arr)
 			return (free_elements(&a), submit_error(), 2);
 		if (a.capacity == 2)
 			sort_two(&a, A);
 		else if (a.capacity == 3)
 			sort_three(&a);
 		else
-			pivot_around_two_thirds(&a, &b, map, ROTATE);
+			(radix_sort(&a, &b, sorted_arr), free(sorted_arr));
 	}
-	print_stacks(&a, &b);
-	return (free_elements(&a), free(map.arr), 0);
+	return (free_elements(&a), 0);
 }
