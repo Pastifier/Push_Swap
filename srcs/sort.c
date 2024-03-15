@@ -33,11 +33,9 @@ void	radix_sort(t_stack *a, t_stack *b, int *sorted_arr)
 
 static void	assign_sorted_indeces(t_stack *a, int *sorted_arr)
 {
-	size_t	i;
 	size_t	j;
 	t_elem	*iter;
 
-	i = -1;
 	iter = a->top;
 	while (iter)
 	{
