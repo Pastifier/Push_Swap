@@ -32,7 +32,8 @@ int	main(int argc, char *argv[])
 		else if (a.capacity == 3)
 			sort_three(&a);
 		else
-			(radix_sort(&a, &b, sorted_arr), free(sorted_arr));
+			radix_sort(&a, &b, sorted_arr);
+		free(sorted_arr);
 	}
 	return (free_elements(&a), 0);
 }
