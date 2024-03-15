@@ -22,6 +22,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	check_empty(--argc, ++argv);
 	validate_input(&a, argc, argv);
+	sorted_arr = NULL;
 	if (!issorted(&a))
 	{
 		sorted_arr = cpy_stack_to_array_sort(&a);
